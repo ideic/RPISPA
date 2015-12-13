@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="mcuTest">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+  </head>	
+
+  <body>
+    <div ng-controller="MainController as main">
+      <label>MinValue:</label>
+      <input type="number" type="number" min="0" max="100" placeholder="Enter a name here" value="{{main.temp.minValue}}">
+      <hr>
+      <label>MaxValue:</label>
+      <input type="number" min="0" max="100" placeholder="Enter a name here" value="{{main.temp.maxValue}}"> 
+
+      <hr>
+      <label>CurrentValue:</label>
+	  <em>{{main.temp.currentValue}}</em>
+
+      <hr>
+      <label ng-show="main.temp.alarm">Alarm</label>
+    </div>
+  </body>
+</html>

@@ -27,8 +27,8 @@
 
 		  <hr>
 		  <label>CurrentValue:</label>
-		  <em>{{tempCtrl.temp.currentValue}}</em>
-
+		  <em ng-model="tempCtrl.temp.currentValue">{{tempCtrl.temp.currentValue}}</em>
+		   <div ng-model="tempCtrl.temp.currentValue"></div>
 		  <hr>
 		  <div ng-show="tempCtrl.temp.alarm" class="alert alert-danger" role="alert">Alarm</div>
 		</div>

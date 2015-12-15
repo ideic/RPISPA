@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html ng-app="mcuTest">
   <head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>	
   </head>	
 
   <body>
-    <div ng-controller="MainController as main">
-      <label>MinValue:</label>
-      <input type="number" type="number" min="0" max="100" placeholder="Enter a name here" value="{{main.temp.minValue}}">
-      <hr>
-      <label>MaxValue:</label>
-      <input type="number" min="0" max="100" placeholder="Enter a name here" value="{{main.temp.maxValue}}"> 
+	<div class="container">
+		<div ng-controller="MainController as main" class="jumbotron">
+		  <div class="input-group">
+			  <span class="input-group-addon" id="basic-addon3">MinValue</span>
+			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" value="{{main.temp.minValue}}">
+		  </div>		  
+		  <hr>
+		  <div class="input-group">
+			  <span class="input-group-addon" id="basic-addon3">MaxValue</span>
+			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" value="{{main.temp.maxValue}}">
+		  </div>
 
-      <hr>
-      <label>CurrentValue:</label>
-	  <em>{{main.temp.currentValue}}</em>
+		  <hr>
+		  <label>CurrentValue:</label>
+		  <em>{{main.temp.currentValue}}</em>
 
-      <hr>
-      <label ng-show="main.temp.alarm">Alarm</label>
-    </div>
+		  <hr>
+		  <div ng-show="main.temp.alarm" class="alert alert-danger" role="alert">Alarm</div>
+		</div>
+	</div>
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">@Erdőkertes MCU Club</p>
+      </div>
+    </footer>	
   </body>
 </html>

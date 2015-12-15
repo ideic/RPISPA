@@ -3,7 +3,7 @@
 		maxValue:50,
 		minValue:0,
 		currentValue:10,
-		alarm:false
+		alarm:true
 	};
 	var app = angular.module('mcuTest', []);
 	app.controller("MainController", function(){

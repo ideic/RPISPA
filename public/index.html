@@ -14,23 +14,23 @@
 
   <body>
 	<div class="container">
-		<div ng-controller="MainController as main" class="jumbotron">
+		<div ng-controller="TempController as tempCtrl" class="jumbotron">
 		  <div class="input-group">
 			  <span class="input-group-addon" id="basic-addon3">MinValue</span>
-			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" value="{{main.temp.minValue}}">
+			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" value="{{tempCtrl.temp.minValue}}">
 		  </div>		  
 		  <hr>
 		  <div class="input-group">
 			  <span class="input-group-addon" id="basic-addon3">MaxValue</span>
-			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" value="{{main.temp.maxValue}}">
+			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" ng-model="tempCtrl.temp.maxValue">
 		  </div>
 
 		  <hr>
 		  <label>CurrentValue:</label>
-		  <em>{{main.temp.currentValue}}</em>
+		  <em>{{tempCtrl.temp.currentValue}}</em>
 
 		  <hr>
-		  <div ng-show="main.temp.alarm" class="alert alert-danger" role="alert">Alarm</div>
+		  <div ng-show="tempCtrl.temp.alarm" class="alert alert-danger" role="alert">Alarm</div>
 		</div>
 	</div>
 	<footer class="footer">

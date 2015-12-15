@@ -6,7 +6,7 @@
 		alarm:true
 	};
 	var app = angular.module('mcuTest', []);
-	app.controller("MainController", function(){
+	app.controller("TempController", function(){
 		this.temp = tempController;
 	});	
 })();

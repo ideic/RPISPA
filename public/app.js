@@ -6,10 +6,10 @@
 		alarm:false
 	};
 	var app = angular.module('mcuTest', []);
-	app.controller("TempController", function(pollingService) {
+	app.controller("TempController", function(pollingService, $http) {
 		this.temp = pollingService.result;
 		this.setTemp = function(ctrl){
-			$http.post("setTemp", ctrl.temp).success(function(resultData){
+			$http.post("/setTemp", ctrl.temp).success(function(resultData){
 				alert(resultData);
 			});
 		};

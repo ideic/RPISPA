@@ -24,7 +24,12 @@
 			  <span class="input-group-addon" id="basic-addon3">MaxValue</span>
 			  <input type="number" min="0" max="100" class="form-control" aria-describedby="basic-addon1" ng-model="tempCtrl.temp.maxValue">
 		  </div>
-
+		  <hr>
+		  <div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" ng-click="tempCtrl.setTemp(tempCtrl)">Set Limits</button>
+			</span>			  
+		  </div>
 		  <hr>
 		  <label>CurrentValue:</label>
 		  <em ng-model="tempCtrl.temp.currentValue">{{tempCtrl.temp.currentValue}}</em>

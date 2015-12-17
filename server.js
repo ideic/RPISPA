@@ -9,27 +9,6 @@ var tempData = {
 		alarm:true
 	};
 
-// Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: true });
-
-app.post('/setTemp', urlencodedParser, function (req, res) {
-	console.log(req.body);
-	var tData = req.body;
-	/*tempData.maxValue = tData.maxValue;
-	tempData.minValue = tData.minValue;*/
-	res.json(req.body);
-})
-
-app.get('/getTemp', function (req, res) {
-   console.log('getTemp');
-   tempData.currentValue++;
-   res.json(tempData);
-})
-
-app.get('/', function(req, res) {
-        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-    });
-	
 //register static dirs
 // node_modules
 //server.js
@@ -37,7 +16,31 @@ app.get('/', function(req, res) {
 //public/images
 //public/images/logo.png
 app.use(express.static('public'));
-app.use(bodyParser.json());  // parse application/json
+app.use(bodyParser.json({ type: 'application/json' }));  // parse application/json
+//app.use(bodyParser.urlencoded({ extended: true, type:"application/json" }));
+	
+app.post('/setTemp', function (req, res) {
+	console.log(req.body);	
+	console.log(req.body.minValue);
+
+	tempData.maxValue = req.body.maxValue;
+	tempData.minValue = req.body.minValue;
+	res.json(tempData);
+})
+
+app.get('/getTemp', function (req, res) {
+   res.json(tempData);
+});
+
+app.get('/getTempCurrentValue', function (req, res) {
+   tempData.currentValue++;
+   tempData.alarm = tempData.currentValue > tempData.maxValue || tempData.currentValue < tempData.minValue;
+   res.json({"currentValue":tempData.currentValue, "alarm":tempData.alarm});
+});
+
+app.get('/', function(req, res) {
+        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
 
 var server = app.listen(8081, function () {
 

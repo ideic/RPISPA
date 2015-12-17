@@ -33,7 +33,7 @@
 			$http.get('/getTempCurrentValue').then(function(response){
                             data.currentValue=response.data.currentValue;
 							data.alarm=response.data.alarm;
-							$timeout(poller, 10000);
+							$timeout(poller, 1000);
                         });
 		};
 		poller();

@@ -9,6 +9,8 @@ var tempData = {
 		alarm:true
 	};
 
+var index = 1;
+	
 //register static dirs
 // node_modules
 //server.js
@@ -20,9 +22,6 @@ app.use(bodyParser.json({ type: 'application/json' }));  // parse application/js
 //app.use(bodyParser.urlencoded({ extended: true, type:"application/json" }));
 	
 app.post('/setTemp', function (req, res) {
-	console.log(req.body);	
-	console.log(req.body.minValue);
-
 	tempData.maxValue = req.body.maxValue;
 	tempData.minValue = req.body.minValue;
 	res.json(tempData);
@@ -33,8 +32,17 @@ app.get('/getTemp', function (req, res) {
 });
 
 app.get('/getTempCurrentValue', function (req, res) {
-   tempData.currentValue++;
+   tempData.currentValue = tempData.currentValue + index;
    tempData.alarm = tempData.currentValue > tempData.maxValue || tempData.currentValue < tempData.minValue;
+   if (index == 1 && tempData.currentValue > tempData.maxValue + 10)
+   {
+	   index = -1;
+   }
+   else if (index == -1 && tempData.currentValue < tempData.minValue - 10)
+   {
+	   index = 1;
+   }
+   
    res.json({"currentValue":tempData.currentValue, "alarm":tempData.alarm});
 });
 

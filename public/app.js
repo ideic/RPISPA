@@ -10,11 +10,11 @@
 		var self = this;
 		self.temp = pollingService.result;
 		
-		$http.get('/getTemp').then(function(response){
-                            self.temp.maxValue=response.data.maxValue;
-                            self.temp.data.minValue=response.data.minValue;
-                            self.temp.data.currentValue=response.data.currentValue;
-							self.temp.data.alarm=response.data.alarm;
+		$http.get('/getTemp').success(function(response){
+                            self.temp.maxValue=response.maxValue;
+                            self.temp.minValue=response.minValue;
+                            self.temp.currentValue=response.currentValue;
+							self.temp.alarm=response.alarm;
                         });		
 		
 		this.setTemp = function(ctrl){

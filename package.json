@@ -1,0 +1,29 @@
+{
+  "name": "rpispa",
+  "version": "1.0.0",
+  "description": "spa demo app for raspberry",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideic/RPISPA.git"
+  },
+  "keywords": [
+    "raspberry",
+    "node"
+  ],
+  "author": "csidei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ideic/RPISPA/issues"
+  },
+  "homepage": "https://github.com/ideic/RPISPA#readme"
+}

@@ -11,13 +11,9 @@ var tempData = {
 
 var index = 1;
 	
-//register static dirs
-// node_modules
-//server.js
-//public/
-//public/images
-//public/images/logo.png
 app.use(express.static('public'));
+app.use(express.static('src/view'));
+
 app.use(bodyParser.json({ type: 'application/json' }));  // parse application/json
 //app.use(bodyParser.urlencoded({ extended: true, type:"application/json" }));
 	
@@ -47,7 +43,7 @@ app.get('/getTempCurrentValue', function (req, res) {
 });
 
 app.get('/', function(req, res) {
-        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+        res.sendFile(__dirname + '/src/view/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 
 var server = app.listen(8081, function () {
